@@ -1597,7 +1597,7 @@ class Doc2VecKeyedVectors(BaseKeyedVectors):
             if isinstance(index, string_types + integer_types + (integer,)):
                 return self.vectors_docs[self._int_index(index, self.doctags, self.max_rawint)]
             return vstack([self[i] for i in index])
-        raise KeyError("tag '%s' not seen in training corpus/invalid" % index)
+        raise IndexError("tag '%s' not seen in training corpus/invalid" % index)
 
     def __contains__(self, index):
         if isinstance(index, integer_types + (integer,)):
